@@ -2,6 +2,12 @@
 Está é minha solução para o desafio da MusicPlayce
 
 ### Espero que curtam!
+As tecs usadas foram:
+- React com Hooks
+- Styled Components
+- ESLint e Prettier
+- poker-odds-calculator
+- react-toastify
 
 ## ⚙ Objetivo
 
