@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const CardContainer = styled.div`
   padding: 16px 20px;
@@ -6,6 +6,11 @@ export const CardContainer = styled.div`
   background: #fff;
   border: none;
   border-radius: 8px;
+  ${(props) =>
+    props.color &&
+    css`
+      color: ${props.color};
+    `}
 
   span {
     font-size: 20px;
