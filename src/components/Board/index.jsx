@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 
 import cardData from '../../helpers/cardData';
 import calculateOdds from '../../helpers/pokerOddsCalculator';
@@ -52,11 +53,25 @@ const Board = () => {
 
     if (oddsPlayer1 > oddsPlayer2) {
       setPlayerOne((prevState) => ({ ...prevState, wins: prevState.wins + 1 }));
+      toast.success(
+        `Vitoria do Jogador 1 com ${oddsPlayer1}% vs ${oddsPlayer2}% do Jogador 2`
+      );
     } else if (oddsPlayer2 > oddsPlayer1) {
       setPlayerTwo((prevState) => ({ ...prevState, wins: prevState.wins + 1 }));
+      toast.success(
+        `Vitoria do Jogador 2 com ${oddsPlayer2}% vs ${oddsPlayer1}% do Jogador 1`
+      );
     }
 
     setIsStarted(true);
+  };
+
+  const newRound = () => {
+    setCards(cardData);
+    setPlayerOne((prevState) => ({ ...prevState, cards: [] }));
+    setPlayerTwo((prevState) => ({ ...prevState, cards: [] }));
+    setTableCards((prevState) => ({ ...prevState, cards: [] }));
+    setIsStarted(false);
   };
 
   return (
@@ -97,6 +112,11 @@ const Board = () => {
       </S.BoardContainer>
       <User name={playerTwo.name} wins={playerTwo.wins} />
       <h2>Jogador 2</h2>
+      {isStarted && (
+        <S.Button type="button" onClick={() => newRound()}>
+          Jogar Novamente
+        </S.Button>
+      )}
     </>
   );
 };

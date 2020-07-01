@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { darken } from 'polished';
 
 export const BoardContainer = styled.div`
   display: flex;
@@ -25,4 +26,9 @@ export const Button = styled.button`
   border: none;
   border-radius: 8px;
   background-color: #ff7098;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: ${darken(0.1, '#ff7098')};
+  }
 `;
