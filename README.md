@@ -8,6 +8,7 @@ As tecs usadas foram:
 - ESLint e Prettier
 - poker-odds-calculator
 - react-toastify
+- E ❤
 
 ## ⚙ Objetivo
 
